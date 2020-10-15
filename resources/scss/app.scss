@@ -1,3 +1,189 @@
-h1{
-    color: red;
+$primary-color: #2c3e50;
+$secondary-color: #e67e22;
+$bg-light: #ecf0f1;
+$bg-dark: #7f8c8d;
+
+@import './reset.scss';
+@import './layout.scss';
+
+#header{
+    /* height: 50px; */
+    width: 100%;
+    position: relative;
+    background-color: var(--primary-color);
+    justify-content: space-between;
+    padding: 0;
+    .logo{
+        font-family: 'Poppins', sans-serif;
+        font-size: 40px;
+        line-height: 50px;
+        font-weight: 800;
+        display: inline-block;
+        margin-left: 5px;
+        letter-spacing: 2px;
+        float: left;
+        color: var(--secondary-color);
+    }
+
+}
+.fa{
+    color: #fff;
+    font-size: 40px;
+    line-height: 50px;
+    align-self: center;
+    &:hover{
+        color: var(--secondary-color);
+    }
+}
+#main_content {
+    background-color: var(--bg-dark);
+    position: relative;
+
+    .infoscreen {
+        background-color: var(--bg-light);
+        border-radius: 20px;
+        overflow: hidden;
+        padding: 15px;
+        font-size: 16px;
+        position: relative;
+
+        @media screen and (min-width: 480px){
+            .title, .account{
+                display: grid;
+                grid-template-columns: 30px 1fr 200px;
+                grid-template-areas: "check iban amount";
+                padding: 20px 0;
+                border-bottom: 2px solid #ccc;
+            }
+            .title{
+                font-weight: 900;
+                border-bottom: 2px solid #777;
+            }
+            input{
+                grid-area: check;
+                align-self: center;
+                justify-self: start;
+            }
+            
+        }
+
+        .title, .account{
+            display: none;
+        }
+
+        .mobile-account{
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 30px 1fr;
+            grid-template-areas: "iban" "amount";
+
+            @media screen and (min-width: 480px){
+                display: none;
+
+
+            }
+
+            .select{
+                grid-area: iban;
+            }
+
+            select{
+                width: 100%;
+                font-size: 20px;
+                margin-bottom: 30px;
+            }
+
+            .amount {
+                grid-area: amount;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                justify-content: flex-start;
+                align-items: center;
+
+                label {
+                    font-size: 20px;
+                    margin: 20px 0;
+                }
+
+                h2 {
+                    font-size: 35px;
+                    color: var(--secondary-color);
+                    font-weight: 900;
+                }
+            }
+        }
+        .welcome{
+            /* font-size: 35px;
+            font-weight: 700; */
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        button{
+            position: absolute;
+            text-decoration: none;
+            width: fit-content;
+            left: 50%;
+            transform: translate(-50%);
+            padding: 10px 20px;
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 700;
+            color: #fff;
+            background-color: var(--secondary-color);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            
+            &:hover {
+                background-color: var(--primary-color);
+            }
+
+            @media screen and (min-width: 480px){
+                position: unset;
+                transform: unset;
+                display: inline-block;
+                float: right;
+                margin-top: 30px;
+                margin-left: 10px;
+                &.remove-money{
+                    visibility: hidden;
+                }
+                &#delete{
+                    visibility: hidden;
+                }
+            }
+        }
+
+        .remove-money {
+            bottom: 90px;
+        }
+
+        #delete {
+            bottom: 20px;
+        }
+    }
+}
+#message{
+    position: absolute;
+    display: grid;
+    grid-template-columns: 15px 1fr 15px ;
+    top: 0;
+    background-color: sandybrown;
+    width: 100%;
+
+    
+    .message {
+        width: 100%;
+        grid-column: 2 / 3;
+        word-break: break-word;
+        color: crimson;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    @media (min-width: 1200px){
+        grid-template-columns: 1fr 1140px 1fr ;
+    }
 }

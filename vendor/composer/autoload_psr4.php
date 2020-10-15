@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'labank\\' => array($baseDir . '/APP'),
+    'Module\\' => array($baseDir . '/'),
+    'Control\\' => array($baseDir . '/'),
 );
