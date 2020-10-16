@@ -13,7 +13,7 @@ if('account' == $route[0] && 1 < count($route)){ //if request is for account cha
         $ctrl->create();
     }
     elseif('save' == $route[1]){
-        $ctrl->save();
+        $ctrl->save($route[2]);
     }
     elseif('edit' == $route[1]){
         $ctrl->edit();
@@ -26,7 +26,11 @@ if('account' == $route[0] && 1 < count($route)){ //if request is for account cha
     }
     elseif('index' == $route[1]){
         $ctrl->index();
-    } else {
+    } 
+    elseif('login' == $route[1]){
+        $ctrl->login();
+    } 
+    else {
         echo 'No such method in Account';
     }
 } elseif('' == $route[0] && 1 == count($route)) {

@@ -13,7 +13,7 @@ class AccountController{
         ];
         require DIR . '/views/create.php';
     }
-    public function save(){
+    public function save($userID){
         echo 'Hello, this is SAVE';
     }
     public function edit(){
@@ -39,5 +39,8 @@ class AccountController{
             'balance' => 123456
         ];
         require DIR . '/views/user.php';
+    }
+    public function login(){
+        echo 'Hello, this is LOGIN';
     }
 }

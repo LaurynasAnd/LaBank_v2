@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaBank</title>
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap');    
     <?php require DIR . '/public/css/app.css'; ?>
     </style>
+    <script src="https://use.fontawesome.com/9bc37f7865.js"></script>
 </head>
 
 <body>
@@ -40,9 +42,12 @@
                         Valiuta: 
                     </div>Eur</div>
                 </div>
-                <form action="" method="post">
+                <form action="<?= URL . 'account/update'; ?>" method="post">
                     <input type="text" name="amount" id="amount" placeholder="Įveskite sumą">
-                    <button id="submit" type="submit">Pridėti</button>
+                    <div class="buttons">
+                        <button id="submit" type="submit" value="add">Pridėti</button>
+                        <button id="submit" type="submit" value="remove">Atimti</button>
+                    </div>
                 </form>
             </div>
         </div>

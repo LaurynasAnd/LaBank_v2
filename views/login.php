@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaBank</title>
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap');    
     <?php require DIR . '/public/css/app.css'; ?>
     </style>
+    <script src="https://use.fontawesome.com/9bc37f7865.js"></script>
 </head>
 
 <body>
@@ -22,7 +24,7 @@
             <div class="infoscreen col-12">
                 <h1>Sveiki atvykę į LaBank</h1>
                 <p>Norėdami prisijungti, įveskite prisijungimo duomenis</p>
-                <form action="" method="post">
+                <form action="<?= URL . 'account/login'; ?>" method="post">
                     <input type="text" name="idNumber" id="idNumber" placeholder="Asmens kodas">
                     <input type="password" name="psw" id="psw" placeholder="Slaptažodis">
                     <button id="submit" type="submit">Prisijungti</button>
@@ -41,7 +43,7 @@
             unset($answers['badInput']);endif; 
         ?>
     </main>
-    <a href="<?php URL . 'account/create'; ?>">Atidaryti sąskaitą</a>
+    <a href="<?= URL . 'account/create'; ?>" class="login">Atidaryti sąskaitą</a>
 </body>
 
 </html>
