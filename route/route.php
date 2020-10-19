@@ -8,12 +8,15 @@ $route = ('/' != $path )
 $route = explode('/', $route);
 
 if('account' == $route[0] && 1 < count($route)){ //if request is for account changes
+    // if(1 != $_SESSION['login'] ?? 0){
+
+    // }
     $ctrl = new AccountController;
     if('create' == $route[1]){
         $ctrl->create();
     }
     elseif('save' == $route[1]){
-        $ctrl->save($route[2]);
+        $ctrl->save();
     }
     elseif('edit' == $route[1]){
         $ctrl->edit();
@@ -27,14 +30,16 @@ if('account' == $route[0] && 1 < count($route)){ //if request is for account cha
     elseif('index' == $route[1]){
         $ctrl->index();
     } 
-    elseif('login' == $route[1]){
-        $ctrl->login();
-    } 
+    // elseif('login' == $route[1]){
+    //     $ctrl->login();
+    // } 
     else {
         echo 'No such method in Account';
     }
-} elseif('' == $route[0] && 1 == count($route)) {
+} 
+elseif('' == $route[0] && 1 == count($route)) {
     require DIR . '/views/login.php';
-} else {
+} 
+else {
     echo 'Too BAD muhaha';
 }

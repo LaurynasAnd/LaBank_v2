@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaBank</title>
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap');    
-    <?php require DIR . '/public/css/app.css'; ?>
-    </style>
+    <link rel="stylesheet" href="<?=URL?>/css/app.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://use.fontawesome.com/9bc37f7865.js"></script>
 </head>
 
@@ -24,48 +22,38 @@
             <form class="infoscreen col-12" method="post">
                 <h2 class="welcome">Sveiki, <?=$user['name']?> <?=$user['surname']?></h2>
                 <div class="title">
-                    <input type="checkbox" name="" id="check_all">
+                    <input type="radio" name="" id="check_all" style="visibility: hidden">
                     <div class="iban">Sąskaita</div>
                     <div class="amount">Galutinis likutis</div>
                 </div>
+                <?php foreach($user['accounts'] as $index => $account) :?>
                 <div class="account">
-                    <input type="checkbox" name="marked-checkbox" value="<?=$user['iban']?>" class="check check1">
-                    <div class="iban"><?=$user['iban']?> <?=strtoupper($user['name'])?> <?=strtoupper($user['surname'])?></div>
-                    <div class="amount"><?=$user['balance']?> &euro;</div>
+                    <input type="radio" name="marked-checkbox" value="<?=$index?>" class="check check1">
+                    <div class="iban"><?=$account['iban']?> <?=strtoupper($user['name'])?> <?=strtoupper($user['surname'])?></div>
+                    <div class="amount"><?=$account['balance']?> &euro;</div>
                 </div>
+                <?php endforeach; ?>
                 
-                <div class="mobile-account">
-                    <div class="select">
-
-                        <select name="iban-no" id="">
-                            <option value="account1"><?=$user['iban']?></option>
-                        </select>
-                    </div>
-                    <div class="amount">
-                        <label>Sąskaitos likutis</label>
-                        <h2><?=$user['balance']?> &euro;</h2>
-                    </div>
+                <div class="buttons">
+                    <button id="delete" type="submit" name="delete">Ištrinti sąskaitą</button>
+                    <button href="<?= URL . 'account/edit' ?>" class="link remove-money" type="submit" name="edit">Pinigų operacijos</button>
                 </div>
-                <button id="delete" type="submit" name="delete">Ištrinti sąskaitą</button>
-                <button href="<?= URL . 'account/edit' ?>" class="link remove-money" type="submit" name="edit">Pinigų operacijos</button>
             </form>
         </div>
-        <?php if(isset($answers['message'])) : ?>
-            <div id="message"><div class="message"><?=$answers['message']?></div></div>
+        <?php if(isset($this->answers['message'])) : ?>
+            <div id="message"><div class="message"><?=$this->answers['message']?></div></div>
         <?php 
-            unset($answers['message']);
+            unset($this->answers['message']);
             endif; 
         ?>
-        <?php if(isset($answers['delete'])) : ?>
-            <div id="message"><div class="message"><?=$answers['delete']?></div></div>
+        <?php if(isset($this->answers['delete'])) : ?>
+            <div id="message"><div class="message"><?=$this->answers['delete']?></div></div>
         <?php 
-            unset($answers['delete']);
+            unset($this->answers['delete']);
             endif; 
         ?>
     </main>
-    <script>
-    <?php require DIR . '/public/js/app.js'; ?>
-    </script>
+    <script src="<?=URL?>/js/app.js"></script>
 </body>
 
 </html>

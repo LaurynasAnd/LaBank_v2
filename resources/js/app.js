@@ -18,10 +18,10 @@ checkAll.addEventListener('change', function () {
 });
 
 //next, event listener for all check boxes will be created, for the button
-const checkboxesAll = document.querySelectorAll('input[type=checkbox]');
+const checkboxesAll = document.querySelectorAll('input[type=radio]');
 for (const box of checkboxesAll){
     box.addEventListener('change', function(){
-        if(0 !== document.querySelectorAll('input[type=checkbox]:checked').length){
+        if(0 !== document.querySelectorAll('input[type=radio]:checked').length){
             document.querySelector('button').style.visibility = 'visible';
             for(const link of document.querySelectorAll('.link')){
                 link.style.visibility = 'visible';

@@ -138,7 +138,7 @@ checkAll.addEventListener('change', function () {
   }
 }); //next, event listener for all check boxes will be created, for the button
 
-var checkboxesAll = document.querySelectorAll('input[type=checkbox]');
+var checkboxesAll = document.querySelectorAll('input[type=radio]');
 
 var _iterator3 = _createForOfIteratorHelper(checkboxesAll),
     _step3;
@@ -147,7 +147,7 @@ try {
   for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
     var box = _step3.value;
     box.addEventListener('change', function () {
-      if (0 !== document.querySelectorAll('input[type=checkbox]:checked').length) {
+      if (0 !== document.querySelectorAll('input[type=radio]:checked').length) {
         document.querySelector('button').style.visibility = 'visible';
 
         var _iterator4 = _createForOfIteratorHelper(document.querySelectorAll('.link')),

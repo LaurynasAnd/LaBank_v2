@@ -108,7 +108,12 @@ $bg-dark: #7f8c8d;
 
 
         .title, .account{
-            display: none;
+            word-break: break-word;
+            display: grid;
+            grid-template-columns: 30px 1fr 150px;
+            grid-template-areas: "check iban amount";
+            padding: 20px 0;
+            border-bottom: 2px solid #ccc;
         }
 
         .mobile-account{
@@ -159,51 +164,59 @@ $bg-dark: #7f8c8d;
             color: $secondary-color;
             margin-bottom: 20px;
         }
-        button{
-            position: absolute;
-            text-decoration: none;
-            width: fit-content;
-            left: 50%;
-            transform: translate(-50%);
-            padding: 10px 20px;
-            font-size: 16px;
-            line-height: 20px;
-            font-weight: 700;
-            color: #fff;
-            background-color: $secondary-color;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
+        .buttons{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            button{
+                width: fit-content;
+                padding: 10px 20px;
+                margin: 10px;
+                font-size: 16px;
+                line-height: 20px;
+                font-weight: 700;
+                color: #fff;
+                background-color: $secondary-color;
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+                
+                &:hover {
+                    background-color: $primary-color;
+                }
+    
+                // &#submit{
+                //     position: unset;
+                //     transform: unset;
+                //     margin-left: calc(50% - 57px);
+                // }
+    
+                // &#submit_new_acc{
+                //     position: unset;
+                //     transform: unset;
+                //     margin-left: calc(50% - 83px);
+                // }
+    
+                // @media screen and (min-width: 480px){
+                //     position: unset;
+                //     transform: unset;
+                //     display: inline-block;
+                //     float: right;
+                //     margin-top: 30px;
+                //     margin-left: 10px;
+                //     &.remove-money{
+                //         visibility: hidden;
+                //     }
+                //     &#delete{
+                //         visibility: hidden;
+                //     }
+                // }
+            }
             
-            &:hover {
-                background-color: $primary-color;
-            }
-
-            &#submit{
-                position: unset;
-                transform: unset;
-                margin-left: calc(50% - 57px);
-            }
-
-            &#submit_new_acc{
-                position: unset;
-                transform: unset;
-                margin-left: calc(50% - 83px);
-            }
-
             @media screen and (min-width: 480px){
-                position: unset;
-                transform: unset;
-                display: inline-block;
-                float: right;
-                margin-top: 30px;
-                margin-left: 10px;
-                &.remove-money{
-                    visibility: hidden;
-                }
-                &#delete{
-                    visibility: hidden;
-                }
+                flex-direction: row;
+                justify-content: flex-end;
             }
         }
 
