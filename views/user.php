@@ -21,19 +21,18 @@
         <div class="row">
             <form class="infoscreen col-12" method="post">
                 <h2 class="welcome">Sveiki, <?=$user['name']?> <?=$user['surname']?></h2>
-                <div class="title">
-                    <input type="radio" name="" id="check_all" style="visibility: hidden">
-                    <div class="iban">Sąskaita</div>
-                    <div class="amount">Galutinis likutis</div>
-                </div>
-                <?php foreach($user['accounts'] as $index => $account) :?>
-                <div class="account">
-                    <input type="radio" name="marked-checkbox" value="<?=$index?>" class="check check1">
-                    <div class="iban"><?=$account['iban']?> <?=strtoupper($user['name'])?> <?=strtoupper($user['surname'])?></div>
-                    <div class="amount"><?=$account['balance']?> &euro;</div>
-                </div>
-                <?php endforeach; ?>
-                
+                <table>
+                    <tr>
+                        <th class="iban">Sąskaita</th>
+                        <th class="amount">Galutinis likutis</th>
+                    </tr>
+                    <?php foreach($user['accounts'] as $index => $account) :?>
+                    <tr>
+                        <td class="iban"><input id="radio<?=$index?>" type="radio" name="marked-checkbox" value="<?=$index?>" class="check check1" style="display: none;"><label for="radio<?=$index?>"><?=$account['iban']?> <?=strtoupper($user['name'])?> <?=strtoupper($user['surname'])?></label></td>
+                        <td class="amount"><?=$account['balance']?> &euro;</td>
+                    </tr>
+                    <?php endforeach; ?>
+                </table>
                 <div class="buttons">
                     <button id="delete" type="submit" name="delete">Ištrinti sąskaitą</button>
                     <button href="<?= URL . 'account/edit' ?>" class="link remove-money" type="submit" name="edit">Pinigų operacijos</button>

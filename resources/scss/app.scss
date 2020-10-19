@@ -81,7 +81,25 @@ $bg-dark: #7f8c8d;
                     margin-bottom: 20px;
             }
         }
-
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            tr{
+                &.active{
+                    background-color: $primary-color;
+                }
+                th, td{
+                    vertical-align: middle;
+                    border-top: 1px solid #dddddd;
+                    border-bottom: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 12px 8px;
+                }
+                input[type=radio]:checked+label{
+                    color: $secondary-color;
+                }
+            }
+        }
         .account-info{
             display: flex;
             flex-direction: column;
@@ -107,57 +125,8 @@ $bg-dark: #7f8c8d;
         }
 
 
-        .title, .account{
-            word-break: break-word;
-            display: grid;
-            grid-template-columns: 30px 1fr 150px;
-            grid-template-areas: "check iban amount";
-            padding: 20px 0;
-            border-bottom: 2px solid #ccc;
-        }
 
-        .mobile-account{
-            height: 100%;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 30px 1fr;
-            grid-template-areas: "iban" "amount";
-
-
-            .select{
-                grid-area: iban;
-            }
-
-            select{
-                width: 100%;
-                font-size: 20px;
-                margin-bottom: 30px;
-            }
-
-            .amount {
-                grid-area: amount;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                justify-content: flex-start;
-                align-items: center;
-
-                label {
-                    font-size: 20px;
-                    margin: 20px 0;
-                }
-
-                h2 {
-                    font-size: 35px;
-                    color: $secondary-color;
-                    font-weight: 900;
-                }
-            }
-            
-            @media screen and (min-width: 480px){
-                display: none;
-            }
-        }
+        
         .welcome{
             /* font-size: 35px;
             font-weight: 700; */
@@ -186,32 +155,6 @@ $bg-dark: #7f8c8d;
                     background-color: $primary-color;
                 }
     
-                // &#submit{
-                //     position: unset;
-                //     transform: unset;
-                //     margin-left: calc(50% - 57px);
-                // }
-    
-                // &#submit_new_acc{
-                //     position: unset;
-                //     transform: unset;
-                //     margin-left: calc(50% - 83px);
-                // }
-    
-                // @media screen and (min-width: 480px){
-                //     position: unset;
-                //     transform: unset;
-                //     display: inline-block;
-                //     float: right;
-                //     margin-top: 30px;
-                //     margin-left: 10px;
-                //     &.remove-money{
-                //         visibility: hidden;
-                //     }
-                //     &#delete{
-                //         visibility: hidden;
-                //     }
-                // }
             }
             
             @media screen and (min-width: 480px){
@@ -238,17 +181,6 @@ $bg-dark: #7f8c8d;
 
         
         @media screen and (min-width: 480px){
-            .title, .account{
-                display: grid;
-                grid-template-columns: 30px 1fr 200px;
-                grid-template-areas: "check iban amount";
-                padding: 20px 0;
-                border-bottom: 2px solid #ccc;
-            }
-            .title{
-                font-weight: 900;
-                border-bottom: 2px solid #777;
-            }
             input{
                 grid-area: check;
                 align-self: center;
